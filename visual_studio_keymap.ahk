@@ -1,17 +1,16 @@
-VsSend(key) {
-    p := WinGetProcessName("A")
-    if InStr(p, "devenv.exe") {
-        Send(key)
-        return
-    }
-    Send(SubStr(A_ThisHotkey, 2))
+#HotIf Vs()
+$^-:: Send("^m^s")
+
+#HotIf Vs()
+$^!l:: Send("^k^d")
+
+#HotIf Vs()
+$^!Left:: Send("^-")
+
+#HotIf Vs()
+$^!Right:: Send("^!-")
+
+
+Vs() {
+    return InStr(WinGetProcessName("A"), "devenv.exe")
 }
-
-    
-$^-:: VsSend("^m^s")
-
-$^!l:: VsSend("^k^d")
-
-$^!Left:: VsSend("^-")
-
-$^!Right:: VsSend("^!-")

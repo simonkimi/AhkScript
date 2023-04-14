@@ -12,40 +12,40 @@ JetbrainP := ["rider64.exe", "goland64.exe"]
 VisualStudioP := "devenv.exe"
 
 
-Jetbrain := Map()
-Jetbrain["run"] := "+{F10}"
-Jetbrain["stop"] := "+{F2}"
-Jetbrain["debug"] := "+{F9}"
-Jetbrain["left"] := "^!{Left}"
-Jetbrain["right"] := "^!{Right}"
+JetbrainCommand := Map()
+JetbrainCommand["run"] := "+{F10}"
+JetbrainCommand["stop"] := "+{F2}"
+JetbrainCommand["debug"] := "+{F9}"
+JetbrainCommand["left"] := "^!{Left}"
+JetbrainCommand["right"] := "^!{Right}"
 
 
-Vs := Map()
-Vs["run"] := "^{F5}"
-Vs["stop"] := "+{F5}"
-Vs["debug"] := "{F5}"
-Vs["left"] := "^{-}"
-Vs["right"] := "^+{-}"
+VsCommand := Map()
+VsCommand["run"] := "^{F5}"
+VsCommand["stop"] := "+{F5}"
+VsCommand["debug"] := "{F5}"
+VsCommand["left"] := "^{-}"
+VsCommand["right"] := "^+{-}"
 
 
-Vsc := Map()
-Vsc["run"] := "^{F5}"
-Vsc["stop"] := "^{F6}"
-Vsc["debug"] := "{F5}"
-Vsc["left"] := "^!{Left}"
-Vsc["right"] := "^!{Right}"
+VscCommand := Map()
+VscCommand["run"] := "^{F5}"
+VscCommand["stop"] := "^{F6}"
+VscCommand["debug"] := "{F5}"
+VscCommand["left"] := "^!{Left}"
+VscCommand["right"] := "^!{Right}"
 
 
 DeveloperKey(mode) {
     p := WinGetProcessName("A")
     if InStr(p, VsCodeP) {
-        Send(Vsc[mode])
+        Send(VscCommand[mode])
     } else if InStr(p, VisualStudioP) {
-        Send(Vs[mode])
+        Send(VsCommand[mode])
     } else {
         loop JetbrainP.Length {
             if InStr(p, JetbrainP[A_Index]) {
-                Send(Jetbrain[mode])
+                Send(JetbrainCommand[mode])
             }
         }
     }
