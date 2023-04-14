@@ -38,7 +38,7 @@ Vsc["right"] := "^!{Right}"
 
 DeveloperKey(mode) {
     p := WinGetProcessName("A")
-     if InStr(p, VsCodeP) {
+    if InStr(p, VsCodeP) {
         Send(Vsc[mode])
     } else if InStr(p, VisualStudioP) {
         Send(Vs[mode])
