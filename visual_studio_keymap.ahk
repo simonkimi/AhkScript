@@ -17,13 +17,12 @@ $!\:: Send("^!\")
 F11:: Send("^``")
 
 #HotIf Vs()
-Shift:: 
+$Shift:: 
 {
     If (A_PriorHotkey == A_ThisHotkey && A_TimeSincePriorHotkey < 500) {
         Send "^n"
-    } Else {
-        Send "{Shift Down}{Shift Up}"
     }
+    
 }
 
 
