@@ -10,6 +10,22 @@ $^!Left:: Send("^-")
 #HotIf Vs()
 $^!Right:: Send("^!-")
 
+#HotIf Vs()
+$!\:: Send("^!\")
+
+#HotIf Vs()
+F11:: Send("^``")
+
+#HotIf Vs()
+Shift:: 
+{
+    If (A_PriorHotkey == A_ThisHotkey && A_TimeSincePriorHotkey < 500) {
+        Send "^n"
+    } Else {
+        Send "{Shift Down}{Shift Up}"
+    }
+}
+
 
 Vs() {
     return InStr(WinGetProcessName("A"), "devenv.exe")
