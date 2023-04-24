@@ -8,13 +8,22 @@ $^!l:: Send("^k^d")
 $^!Left:: Send("^-")
 
 #HotIf Vs()
-$^!Right:: Send("^!-")
+$^!Right:: Send("^+-")
 
 #HotIf Vs()
 $!\:: Send("^!\")
 
 #HotIf Vs()
-F11:: Send("^``")
+$F11:: Send("^``")
+
+#HotIf Vs()
+$F7:: Send("{F11}")
+
+#HotIf Vs()
+$F8:: Send("{F10}")
+
+#HotIf Vs()
+$F9:: Send("{F5}")
 
 #HotIf Vs()
 $Shift:: 
